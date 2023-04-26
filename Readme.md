@@ -19,39 +19,4 @@
                <img src="/Images/10.PNG">
 
 </p>
-<H1 align="center">Compte Rendu TP4</H1>
-<h3>Sécuriser cette application en intégrant un système d'authentification basé sur Spring security avec les trois stratégies : 
-         InMemoryA uthentication, JdbcAuthentication et UserDetailsService</h3> 
-       <h4>Ajouter la page login pour chaque utilisateurs </h4> 
-         <p> 
-               -pour un admin
-               <img src="/Images/11.PNG"><br> 
-               -pour un simple utilisateur
-               <img src="/Images/12.PNG"></p>
-       <h4> la page d'affichage pour chaque utilisateurs </h4> 
-         <p> 
-               -pour un admin
-               <img src="/Images/13.PNG"><br> 
-               -pour un simple utilisateur
-               <img src="/Images/14.PNG"></p>
-<h4>Ajouter la page ajouter pour  </h4> 
-         <p> 
-               -pour un admin
-               <img src="/Images/15.PNG"><br> 
-               
-<h4>Ajouter la modifier  pour  </h4> 
-         <p> 
-               -pour un admin
-               <img src="/Images/16.PNG"><br> 
-               
-<h4>Ajouter la page supprimer pour </h4> 
-         <p> 
-               -pour un admin
-               <img src="/Images/17.PNG"><br>
-<h4> la page qui block un simple user de basculer vers un user admin</h4>
-               <img src="/Images/20.PNG"><br>
-<h4>Security Config</h4>
-               <img src="/Images/18.PNG"><br>
-<h4>Security Controller</h4>
-               <img src="/Images/19.PNG"><br> 
 
