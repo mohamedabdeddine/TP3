@@ -25,6 +25,7 @@ public class Patient {
     @NotEmpty
     @Size(min = 4,max=10)
     private String nom;
+    //annotation de validation
     @Temporal(TemporalType.DATE)
     @DateTimeFormat(pattern = "yyyy-MM-dd")
     private Date dateNaissance;

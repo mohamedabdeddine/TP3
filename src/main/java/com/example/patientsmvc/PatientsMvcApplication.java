@@ -5,8 +5,11 @@ import com.example.patientsmvc.entities.Patient;
 import com.example.patientsmvc.repositories.PatientRepository;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.security.crypto.password.PasswordEncoder;
 
 
+import java.net.PasswordAuthentication;
 import java.util.Date;
 
 @SpringBootApplication
@@ -14,8 +17,7 @@ import java.util.Date;
 public class PatientsMvcApplication {
 
     public static void main(String[] args) {
-        SpringApplication.run(PatientsMvcApplication.class, args);
-    }
+        SpringApplication.run(PatientsMvcApplication.class, args);  }
     //Pour que ça s'execute au démarrage
    //@Bean
     CommandLineRunner commandLineRunner(PatientRepository patientRepository){
@@ -26,7 +28,15 @@ public class PatientsMvcApplication {
             patientRepository.save(new Patient(null,"soukaina",new Date(),true,45));
             patientRepository.findAll().forEach(p -> {
                     System.out.println(p.getNom());
-                });
-    };
+                }); };
     }
+
+    @Bean
+    PasswordEncoder passwordEncoder(){
+        return new BCryptPasswordEncoder();
+    }
+
+
+
 }
+

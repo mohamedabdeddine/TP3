@@ -22,8 +22,8 @@ import java.util.List;
 public class PatientController {
 
     private PatientRepository patientRepository;
-
-    @GetMapping(path = "/index")
+   //chercher
+    @GetMapping(path = "/user/index")
     public  String patients(Model model,
                             @RequestParam(name = "page" , defaultValue = "0") int page,
                             @RequestParam(name = "size" , defaultValue = "5")  int size,
@@ -37,18 +37,18 @@ public class PatientController {
     }
 
 
-
-    @GetMapping(path = "/delete")
+   //delete
+    @GetMapping(path = "/admin/delete")
     public String delete(Long id,String keyword,int page){
         patientRepository.deleteById(id);
-        return "redirect:/index?page="+page+"&keyword="+keyword;
+        return "redirect:/user/index?page="+page+"&keyword="+keyword;
     }
 
 
 
     @GetMapping(path = "/")
     public String home(){
-        return "redirect:/index";
+        return "redirect:/user/index";
     }
 
 
@@ -62,24 +62,24 @@ public class PatientController {
 
 
 
-    @GetMapping(path = "/formpatients")
+    @GetMapping(path = "/admin/formpatients")
     public String formpatients(Model model){
         model.addAttribute("patient",new Patient());
         return "formpatients";
     }
 
-
-    @PostMapping(path="/save")
+    //add and save update
+    @PostMapping(path="/admin/save")
     public String save(Model model, @Valid Patient patient ,
                        BindingResult bindingResult,
                        @RequestParam(defaultValue="0") int page,
                        @RequestParam(defaultValue="") String keyword ) {
         if (bindingResult.hasErrors()) return "formpatients";
         patientRepository.save(patient);
-        return "redirect:/index?page="+page+"&keyword="+keyword;
+        return "redirect:/user/index?page="+page+"&keyword="+keyword;
     }
-
-    @GetMapping(path = "/editpatient")
+    //update
+    @GetMapping(path = "/admin/editpatient")
     public String editpatients(Model model , Long id , String keyword , int page){
         Patient patient=patientRepository.findById(id).orElse(null);
         if (patient==null) throw new RuntimeException("Introuvable");
